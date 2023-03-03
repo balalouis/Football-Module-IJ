@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="Football-Module.app" target="11" />
+      <module name="Football-Module.presentation" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
