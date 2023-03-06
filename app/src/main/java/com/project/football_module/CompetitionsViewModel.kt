@@ -2,8 +2,8 @@ package com.project.football_module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.project.domain.model.TodayMatchEntities
-import com.project.domain.usecases.GetTodayMatchUseCases
+import com.project.mydomain.model.TodayMatchEntities
+import com.project.mydomain.usecases.GetTodayMatchUseCases
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch

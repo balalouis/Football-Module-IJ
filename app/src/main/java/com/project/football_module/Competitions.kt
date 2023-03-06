@@ -1,6 +1,7 @@
 package com.project.football_module
 
-import com.project.domain.model.TodayMatchEntities
+import com.project.mydomain.model.TodayMatchEntities
+
 
 sealed class CompetitionsUiState {
     data class Success(var domainMatchResponse: TodayMatchEntities.DomainMatchResponse?) : CompetitionsUiState()
