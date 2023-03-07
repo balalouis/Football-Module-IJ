@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    private const val BASE_URL = "https://reqres.in/"
+    private const val BASE_URL = "https://api.football-data.org/v4/"
 
 
     @Singleton

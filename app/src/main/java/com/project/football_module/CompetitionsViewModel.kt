@@ -2,7 +2,7 @@ package com.project.football_module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.project.mydomain.usecases.GetTodayMatchUseCases
+import com.project.mydomain.usecases.GetAllMatchUseCases
 import com.project.network.hilt.model.TodayMatchEntities
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,19 +13,19 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CompetitionsViewModel @Inject constructor(
-    private val getTodayFixturesUseCase: GetTodayMatchUseCases
+    private val getAllMatchUseCases: GetAllMatchUseCases
 ) : ViewModel() {
 
-    private val _todayMatchUiState = MutableStateFlow<CompetitionsUiState>(CompetitionsUiState.Success(
+    private val _allMatchUiState = MutableStateFlow<CompetitionsUiState>(CompetitionsUiState.Success(
         TodayMatchEntities.DomainMatchResponse()))
-    val todayMatchUiState: StateFlow<CompetitionsUiState> = _todayMatchUiState
+    val allMatchUiState: StateFlow<CompetitionsUiState> = _allMatchUiState
 
-    fun getTodayMatches(date: String){
+    fun getAllMatches(){
         viewModelScope.launch {
-            getTodayFixturesUseCase.getTodayMatches(date).catch {
-                _todayMatchUiState.value = CompetitionsUiState.Failure(it)
+            getAllMatchUseCases.getAllMatches().catch {
+                _allMatchUiState.value = CompetitionsUiState.Failure(it)
             }.collect {
-                _todayMatchUiState.value = CompetitionsUiState.Success(it)
+                _allMatchUiState.value = CompetitionsUiState.Success(it)
             }
         }
     }

@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface RemoteDataSource {
 
-    suspend fun getAllMatches(date: String): Flow<TodayMatchEntities.DomainMatchResponse>
+    suspend fun getAllMatches(): Flow<TodayMatchEntities.DomainMatchResponse>
 
 }

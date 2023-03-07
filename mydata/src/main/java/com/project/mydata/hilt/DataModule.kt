@@ -4,7 +4,7 @@ import com.project.mydata.CompetitionsRepositoryImpl
 import com.project.mydata.datasource.RemoteDataSource
 import com.project.mydata.datasource.RemoteDataSourceImpl
 import com.project.mydomain.repository.CompetitionsRepository
-import com.project.mydomain.usecases.GetTodayMatchUseCases
+import com.project.mydomain.usecases.GetAllMatchUseCases
 import com.project.network.hilt.api.ApiService
 import dagger.Module
 import dagger.Provides
@@ -16,8 +16,8 @@ import dagger.hilt.android.components.ViewModelComponent
 object DataModule {
 
     @Provides
-    fun provideGetTodayMatchUseCases(competitionsRepository: CompetitionsRepository): GetTodayMatchUseCases {
-        return GetTodayMatchUseCases(competitionsRepository)
+    fun provideGetTodayMatchUseCases(competitionsRepository: CompetitionsRepository): GetAllMatchUseCases {
+        return GetAllMatchUseCases(competitionsRepository)
     }
 
     @Provides

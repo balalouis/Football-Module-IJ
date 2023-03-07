@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 class CompetitionsRepositoryImpl(private val remoteDataSource: RemoteDataSource) :
     CompetitionsRepository {
 
-    override suspend fun getTodayMatches(date: String): Flow<TodayMatchEntities.DomainMatchResponse> =
-        remoteDataSource.getAllMatches(date)
+    override suspend fun getAllMatches(): Flow<TodayMatchEntities.DomainMatchResponse> =
+        remoteDataSource.getAllMatches()
 
 }

@@ -1,4 +1,4 @@
-package com.project.mydata.api
+package com.project.network.hilt.api
 
 class NetworkUtil {
     companion object {
