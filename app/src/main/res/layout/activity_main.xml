@@ -7,7 +7,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment"
-        android:name="com.project.football_module.MainFragment"
+        android:name="com.project.presentation.MatchListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
