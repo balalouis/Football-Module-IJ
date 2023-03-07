@@ -16,3 +16,4 @@ rootProject.name = "Football-Module"
 include ':app'
 include ':mydomain'
 include ':mydata'
+include ':network'

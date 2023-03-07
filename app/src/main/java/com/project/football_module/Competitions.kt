@@ -1,6 +1,6 @@
 package com.project.football_module
 
-import com.project.mydomain.model.TodayMatchEntities
+import com.project.network.hilt.model.TodayMatchEntities
 
 
 sealed class CompetitionsUiState {

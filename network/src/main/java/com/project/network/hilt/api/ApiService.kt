@@ -1,6 +1,6 @@
-package com.project.mydata.api
+package com.project.network.hilt.api
 
-import com.project.mydomain.model.TodayMatchEntities
+import com.project.network.hilt.model.TodayMatchEntities
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query

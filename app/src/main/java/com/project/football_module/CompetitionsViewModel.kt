@@ -2,14 +2,17 @@ package com.project.football_module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.project.mydomain.model.TodayMatchEntities
 import com.project.mydomain.usecases.GetTodayMatchUseCases
+import com.project.network.hilt.model.TodayMatchEntities
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CompetitionsViewModel (
+@HiltViewModel
+class CompetitionsViewModel @Inject constructor(
     private val getTodayFixturesUseCase: GetTodayMatchUseCases
 ) : ViewModel() {
 

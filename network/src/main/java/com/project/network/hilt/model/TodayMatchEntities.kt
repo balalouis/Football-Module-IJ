@@ -1,4 +1,4 @@
-package com.project.mydomain.model
+package com.project.network.hilt.model
 
 import java.util.ArrayList
 
