@@ -44,9 +44,6 @@ class MatchListFragment : Fragment() {
                         is CompetitionsUiState.Failure -> {
                             Log.i("=====> ","Failure: ${it.exception}")
                         }
-                        else -> {
-                            Log.i("=====> ","Else")
-                        }
                     }
                 }
             }
