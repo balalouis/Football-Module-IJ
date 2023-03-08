@@ -10,20 +10,25 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.project.network.hilt.model.TodayMatchEntities
+import com.project.presentation.adapter.MatchFixtureListAdapter
+import com.project.presentation.databinding.FragmentMatchListBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MatchListFragment : Fragment() {
 
+    private lateinit var binding: FragmentMatchListBinding
     private val loginViewModel: CompetitionsViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_match_list, container, false)
+    ): View {
+        binding = FragmentMatchListBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,7 +44,8 @@ class MatchListFragment : Fragment() {
                 loginViewModel.allMatchUiState.collect {
                     when(it){
                         is CompetitionsUiState.Success ->{
-                            Log.i("=====> ","${it.domainMatchResponse?.matches}")
+//                            Log.i("=====> ","${it.domainMatchResponse?.matches}")
+                            updateMatchListAdapter(it.domainMatchResponse?.matches)
                         }
                         is CompetitionsUiState.Failure -> {
                             Log.i("=====> ","Failure: ${it.exception}")
@@ -48,5 +54,12 @@ class MatchListFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun updateMatchListAdapter(matchList: List<TodayMatchEntities.Matche>?) {
+        val matchListAdapter = matchList?.let { context?.let { _ -> MatchFixtureListAdapter(it) } }
+        val matchListRecyclerView = binding.fixturesRecyclerview
+        matchListRecyclerView.adapter = matchListAdapter
+        matchListRecyclerView.layoutManager = LinearLayoutManager(activity)
     }
 }
