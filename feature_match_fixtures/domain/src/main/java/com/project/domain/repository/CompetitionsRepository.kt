@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface CompetitionsRepository {
 
-    suspend fun getAllMatches(): Flow<TodayMatchEntities.DomainMatchResponse>
+    suspend fun getAllMatches(): Flow<TodayMatchEntities.NetworkMatchResponse>
 
 }

@@ -45,7 +45,7 @@ class MatchListFragment : Fragment() {
                     when(it){
                         is CompetitionsUiState.Success ->{
 //                            Log.i("=====> ","${it.domainMatchResponse?.matches}")
-                            updateMatchListAdapter(it.domainMatchResponse?.matches)
+                            updateMatchListAdapter(it.networkMatchResponse?.matches)
                         }
                         is CompetitionsUiState.Failure -> {
                             Log.i("=====> ","Failure: ${it.exception}")

@@ -8,7 +8,7 @@ sealed class TodayMatchEntities {
      *  Data classes for Matches
     */
 
-    data class DomainMatchResponse(
+    data class NetworkMatchResponse(
         var matches: List<NetworkMatch> = ArrayList()
     ): TodayMatchEntities()
 

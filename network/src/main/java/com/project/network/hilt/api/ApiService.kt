@@ -10,6 +10,6 @@ interface ApiService {
     @GET("matches")
     @Headers("X-Auth-Token: $API_KEY")
     suspend fun getAllMatches()
-            : TodayMatchEntities.DomainMatchResponse
+            : TodayMatchEntities.NetworkMatchResponse
 
 }

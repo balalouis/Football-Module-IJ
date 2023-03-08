@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class RemoteDataSourceImpl(private val apiService: ApiService):RemoteDataSource {
-    override suspend fun getAllMatches(): Flow<TodayMatchEntities.DomainMatchResponse> =
+    override suspend fun getAllMatches(): Flow<TodayMatchEntities.NetworkMatchResponse> =
         flow {
             emit(apiService.getAllMatches())
         }

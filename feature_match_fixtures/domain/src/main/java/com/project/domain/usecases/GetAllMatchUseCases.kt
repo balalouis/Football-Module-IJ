@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class GetAllMatchUseCases @Inject constructor (private val competitionsRepository: CompetitionsRepository){
 
-    suspend fun getAllMatches(): Flow<TodayMatchEntities.DomainMatchResponse> {
+    suspend fun getAllMatches(): Flow<TodayMatchEntities.NetworkMatchResponse> {
         return competitionsRepository.getAllMatches()
     }
 

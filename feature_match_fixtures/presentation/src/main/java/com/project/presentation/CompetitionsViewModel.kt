@@ -17,7 +17,7 @@ class CompetitionsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _allMatchUiState = MutableStateFlow<CompetitionsUiState>(CompetitionsUiState.Success(
-        TodayMatchEntities.DomainMatchResponse()))
+        TodayMatchEntities.NetworkMatchResponse()))
     val allMatchUiState: StateFlow<CompetitionsUiState> = _allMatchUiState
 
     fun getAllMatches(){
