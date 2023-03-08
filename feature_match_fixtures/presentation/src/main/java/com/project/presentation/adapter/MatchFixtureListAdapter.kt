@@ -7,7 +7,7 @@ import com.project.network.hilt.model.TodayMatchEntities
 import com.project.presentation.databinding.MatchListRowItemBinding
 import com.project.presentation.utils.Utilities
 
-class MatchFixtureListAdapter(private var matchList: List<TodayMatchEntities.Matche>) :
+class MatchFixtureListAdapter(private var matchList: List<TodayMatchEntities.NetworkMatch>) :
     RecyclerView.Adapter<MatchFixtureListAdapter.MatchListViewHolder>() {
 
     inner class MatchListViewHolder(val binding: MatchListRowItemBinding) :
@@ -24,11 +24,11 @@ class MatchFixtureListAdapter(private var matchList: List<TodayMatchEntities.Mat
         holder.binding.matchStatus.text = match.status
         holder.binding.textView2.text = Utilities.convertDate(match.utcDate)
         holder.binding.textView3.text = String.format("MD: %d",match.matchday)
-        holder.binding.firstPlayer.text = match.homeTeam.name
-        holder.binding.secondPlayer.text = match.awayTeam.name
-        holder.binding.firstPlayerScore.text = match.score.fullTime.home.toString()
-        holder.binding.secondPlayerScore.text = match.score.fullTime.away.toString()
-        holder.binding.matchTime.text = Utilities.showMatchTime(match.status, match.utcDate, match.score)
+        holder.binding.firstPlayer.text = match.netwrokHomeTeam.name
+        holder.binding.secondPlayer.text = match.networkAwayTeam.name
+        holder.binding.firstPlayerScore.text = match.networkScore.networkFullTime.home.toString()
+        holder.binding.secondPlayerScore.text = match.networkScore.networkFullTime.away.toString()
+        holder.binding.matchTime.text = Utilities.showMatchTime(match.status, match.utcDate, match.networkScore)
     }
 
     override fun getItemCount(): Int = matchList.size

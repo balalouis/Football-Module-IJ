@@ -9,35 +9,35 @@ sealed class TodayMatchEntities {
     */
 
     data class DomainMatchResponse(
-        var matches: List<Matche> = ArrayList()
+        var matches: List<NetworkMatch> = ArrayList()
     ): TodayMatchEntities()
 
-    data class Matche(
-        val area: Area,
-        val awayTeam: AwayTeam,
-        val competition: Competition,
+    data class NetworkMatch(
+        val networkArea: NetworkArea,
+        val networkAwayTeam: NetworkAwayTeam,
+        val networkCompetition: NetworkCompetition,
         val group: Any,
-        val homeTeam: HomeTeam,
+        val netwrokHomeTeam: NetwrokHomeTeam,
         val id: Int,
         val lastUpdated: String,
         val matchday: Int,
-        val odds: Odds,
+        val networkOdds: NetworkOdds,
         val referees: List<Any>,
-        val score: Score,
-        val season: Season,
+        val networkScore: NetworkScore,
+        val networkSeason: NetworkSeason,
         val stage: String,
         val status: String,
         val utcDate: String
     ): TodayMatchEntities()
 
-    data class Area(
+    data class NetworkArea(
         val code: String,
         val flag: String,
         val id: Int,
         val name: String
     ): TodayMatchEntities()
 
-    data class AwayTeam(
+    data class NetworkAwayTeam(
         val crest: String,
         val id: Int,
         val name: String,
@@ -45,7 +45,7 @@ sealed class TodayMatchEntities {
         val tla: String
     ): TodayMatchEntities()
 
-    data class Competition(
+    data class NetworkCompetition(
         val code: String,
         val emblem: String,
         val id: Int,
@@ -53,7 +53,7 @@ sealed class TodayMatchEntities {
         val type: String
     ): TodayMatchEntities()
 
-    data class HomeTeam(
+    data class NetwrokHomeTeam(
         val crest: String,
         val id: Int,
         val name: String,
@@ -61,28 +61,28 @@ sealed class TodayMatchEntities {
         val tla: String
     ): TodayMatchEntities()
 
-    data class Odds(
+    data class NetworkOdds(
         val msg: String
     ): TodayMatchEntities()
 
-    data class Score(
+    data class NetworkScore(
         val duration: String,
-        val fullTime: FullTime,
-        val halfTime: HalfTime,
+        val networkFullTime: NetworkFullTime,
+        val networkHalfTime: NetworkHalfTime,
         val winner: String
     ): TodayMatchEntities()
 
-    data class FullTime(
+    data class NetworkFullTime(
         val away: Int,
         val home: Int
     ): TodayMatchEntities()
 
-    data class HalfTime(
+    data class NetworkHalfTime(
         val away: Int,
         val home: Int
     ): TodayMatchEntities()
 
-    data class Season(
+    data class NetworkSeason(
         val currentMatchday: Int,
         val endDate: String,
         val id: Int,

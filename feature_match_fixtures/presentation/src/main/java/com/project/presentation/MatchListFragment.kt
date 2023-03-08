@@ -56,7 +56,7 @@ class MatchListFragment : Fragment() {
         }
     }
 
-    private fun updateMatchListAdapter(matchList: List<TodayMatchEntities.Matche>?) {
+    private fun updateMatchListAdapter(matchList: List<TodayMatchEntities.NetworkMatch>?) {
         val matchListAdapter = matchList?.let { context?.let { _ -> MatchFixtureListAdapter(it) } }
         val matchListRecyclerView = binding.fixturesRecyclerview
         matchListRecyclerView.adapter = matchListAdapter
