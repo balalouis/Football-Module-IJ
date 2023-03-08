@@ -17,7 +17,7 @@ sealed class TodayMatchEntities {
         val networkAwayTeam: NetworkAwayTeam,
         val networkCompetition: NetworkCompetition,
         val group: Any,
-        val netwrokHomeTeam: NetwrokHomeTeam,
+        val networkHomeTeam: NetworkHomeTeam,
         val id: Int,
         val lastUpdated: String,
         val matchday: Int,
@@ -53,7 +53,7 @@ sealed class TodayMatchEntities {
         val type: String
     ): TodayMatchEntities()
 
-    data class NetwrokHomeTeam(
+    data class NetworkHomeTeam(
         val crest: String,
         val id: Int,
         val name: String,
