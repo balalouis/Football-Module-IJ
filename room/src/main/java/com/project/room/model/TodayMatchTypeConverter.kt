@@ -4,6 +4,23 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
+class MatchTypeConverter {
+
+    val gson = Gson()
+
+    @TypeConverter
+    fun matchToString(match: Match): String {
+        return gson.toJson(match)
+    }
+
+    @TypeConverter
+    fun stringToMatch(matchString: String): Match {
+        val objectType = object : TypeToken<Match>() {}.type
+        return gson.fromJson(matchString, objectType)
+    }
+
+}
+
 class AwayTeamTypeConverter {
 
     val gson = Gson()

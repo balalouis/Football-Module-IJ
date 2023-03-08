@@ -6,7 +6,7 @@ import androidx.room.TypeConverters
 import com.project.room.model.*
 
 @Database(entities = [Match::class], version = 1)
-@TypeConverters(AwayTeamTypeConverter::class, HomeTeamTypeConverter::class, ScoreTypeConverter::class, FullTimeTypeConverter::class, HalfTimeTypeConverter::class)
+@TypeConverters(MatchTypeConverter::class, AwayTeamTypeConverter::class, HomeTeamTypeConverter::class, ScoreTypeConverter::class, FullTimeTypeConverter::class, HalfTimeTypeConverter::class)
 abstract class FootballDatabase : RoomDatabase() {
     abstract fun footballDao(): FootballDao
 }

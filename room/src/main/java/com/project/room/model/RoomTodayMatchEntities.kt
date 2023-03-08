@@ -3,12 +3,10 @@ package com.project.room.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
 @Entity(tableName = "match_list_table")
 data class Match(
     @PrimaryKey(autoGenerate = false)
-    var id: Int = 0,
-    val awayTeam: AwayTeam? =null,
+    val awayTeam: AwayTeam,
     val homeTeam: HomeTeam? =null,
     val matchday: Int = 0,
     val score: Score? =null,
