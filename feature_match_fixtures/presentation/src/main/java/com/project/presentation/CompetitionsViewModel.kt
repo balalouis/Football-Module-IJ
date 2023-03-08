@@ -3,7 +3,6 @@ package com.project.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.project.domain.usecases.GetAllMatchUseCases
-import com.project.network.hilt.model.TodayMatchEntities
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,7 +16,7 @@ class CompetitionsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _allMatchUiState = MutableStateFlow<CompetitionsUiState>(CompetitionsUiState.Success(
-        TodayMatchEntities.NetworkMatchResponse()))
+        emptyList()))
     val allMatchUiState: StateFlow<CompetitionsUiState> = _allMatchUiState
 
     fun getAllMatches(){
@@ -27,6 +26,12 @@ class CompetitionsViewModel @Inject constructor(
             }.collect {
                 _allMatchUiState.value = CompetitionsUiState.Success(it)
             }
+        }
+    }
+
+    fun fetchMatchListAndInsertInDBVM(){
+        viewModelScope.launch {
+            getAllMatchUseCases.insertMatchList()
         }
     }
 

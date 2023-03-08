@@ -11,9 +11,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.project.network.hilt.model.TodayMatchEntities
 import com.project.presentation.adapter.MatchFixtureListAdapter
 import com.project.presentation.databinding.FragmentMatchListBinding
+import com.project.room.model.Match
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -38,14 +38,14 @@ class MatchListFragment : Fragment() {
     }
 
     private fun requestAllMatches(){
+        loginViewModel.fetchMatchListAndInsertInDBVM()
         loginViewModel.getAllMatches()
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
                 loginViewModel.allMatchUiState.collect {
                     when(it){
                         is CompetitionsUiState.Success ->{
-//                            Log.i("=====> ","${it.domainMatchResponse?.matches}")
-                            updateMatchListAdapter(it.networkMatchResponse?.matches)
+                            updateMatchListAdapter(it.matchList)
                         }
                         is CompetitionsUiState.Failure -> {
                             Log.i("=====> ","Failure: ${it.exception}")
@@ -56,7 +56,7 @@ class MatchListFragment : Fragment() {
         }
     }
 
-    private fun updateMatchListAdapter(matchList: List<TodayMatchEntities.NetworkMatch>?) {
+    private fun updateMatchListAdapter(matchList: List<Match>?) {
         val matchListAdapter = matchList?.let { context?.let { _ -> MatchFixtureListAdapter(it) } }
         val matchListRecyclerView = binding.fixturesRecyclerview
         matchListRecyclerView.adapter = matchListAdapter

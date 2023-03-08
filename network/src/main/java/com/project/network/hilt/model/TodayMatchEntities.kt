@@ -13,18 +13,18 @@ sealed class TodayMatchEntities {
     ): TodayMatchEntities()
 
     data class NetworkMatch(
-        val networkArea: NetworkArea,
-        val networkAwayTeam: NetworkAwayTeam,
-        val networkCompetition: NetworkCompetition,
+        val area: NetworkArea,
+        val awayTeam: NetworkAwayTeam,
+        val competition: NetworkCompetition,
         val group: Any,
-        val networkHomeTeam: NetworkHomeTeam,
+        val homeTeam: NetworkHomeTeam,
         val id: Int,
         val lastUpdated: String,
         val matchday: Int,
-        val networkOdds: NetworkOdds,
+        val odds: NetworkOdds,
         val referees: List<Any>,
-        val networkScore: NetworkScore,
-        val networkSeason: NetworkSeason,
+        val score: NetworkScore,
+        val season: NetworkSeason,
         val stage: String,
         val status: String,
         val utcDate: String
@@ -67,8 +67,8 @@ sealed class TodayMatchEntities {
 
     data class NetworkScore(
         val duration: String,
-        val networkFullTime: NetworkFullTime,
-        val networkHalfTime: NetworkHalfTime,
+        val fullTime: NetworkFullTime,
+        val halfTime: NetworkHalfTime,
         val winner: String
     ): TodayMatchEntities()
 

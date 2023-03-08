@@ -1,14 +1,16 @@
 package com.project.data.datasource
 
+import com.project.data.mapper.MatchListMapper
 import com.project.network.hilt.api.ApiService
-import com.project.network.hilt.model.TodayMatchEntities
 import com.project.room.FootballDao
+import com.project.room.model.Match
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 class RemoteDataSourceImpl(private val footballDao: FootballDao, private val apiService: ApiService):RemoteDataSource {
-    override suspend fun getAllMatches(): Flow<TodayMatchEntities.NetworkMatchResponse> =
-        flow {
-            emit(apiService.getAllMatches())
-        }
+    override fun getAllMatches(): Flow<List<Match>> = footballDao.getAllMatch()
+
+    override suspend fun fetchMatchListAndInsertIntoDB() {
+        val networkMatchList=apiService.getAllMatches().matches
+        footballDao.insertMatchList(MatchListMapper.convertToUserList(networkMatchList))
+    }
 }

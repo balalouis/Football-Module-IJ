@@ -15,11 +15,11 @@ data class Match(
 )
 
 data class AwayTeam(
-    val name: String = ""
+    val name: String? = ""
 )
 
 data class HomeTeam(
-    val name: String = ""
+    val name: String? = ""
 )
 
 data class Score(
@@ -28,11 +28,11 @@ data class Score(
 )
 
 data class FullTime(
-    val away: Int =0,
-    val home: Int =0
+    val away: Int? =0,
+    val home: Int? =0
 )
 
 data class HalfTime(
-    val away: Int =0,
-    val home: Int =0
+    val away: Int? =0,
+    val home: Int? =0
 )

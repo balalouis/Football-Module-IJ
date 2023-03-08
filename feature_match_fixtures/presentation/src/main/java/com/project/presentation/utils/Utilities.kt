@@ -1,7 +1,7 @@
 package com.project.presentation.utils
 
 import android.annotation.SuppressLint
-import com.project.network.hilt.model.TodayMatchEntities
+import com.project.room.model.Score
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.floor
@@ -61,7 +61,7 @@ object Utilities {
     }
 
     @JvmStatic
-    fun showMatchTime(status: String?, startTime: String?, networkScore: TodayMatchEntities.NetworkScore?): String {
+    fun showMatchTime(status: String?, startTime: String?, score: Score?): String {
         return when (status) {
             "SCHEDULED" -> ("00")
             "PAUSED" -> ("HT")
@@ -69,7 +69,7 @@ object Utilities {
             "POSTPONED" -> ("PPND")
             else -> calculateMatchTime(
                 startTime,
-                networkScore
+                score
             )
         }
     }
@@ -82,7 +82,7 @@ object Utilities {
 
     @SuppressLint("SimpleDateFormat")
     @JvmStatic
-    fun calculateMatchTime(startTime: String?, networkScore: TodayMatchEntities.NetworkScore?): String {
+    fun calculateMatchTime(startTime: String?, score: Score?): String {
         val simpleDateFormat = SimpleDateFormat("HH:mm")
         val time: Int
         if (startTime.isNullOrEmpty()) {
@@ -94,7 +94,7 @@ object Utilities {
                 val currentTime = getCurrentTime()
                 val onGoingMatchTime =
                     simpleDateFormat.parse(currentTime)?.time!! - simpleDateFormat.parse(startedTime)?.time!!
-                time = if (networkScore?.networkHalfTime?.home != null || networkScore?.networkHalfTime?.away != null) {
+                time = if (score?.halfTime?.home != null || score?.halfTime?.away != null) {
                     floor((onGoingMatchTime / 60000.0)).toInt() - 15
                 } else {
                     floor((onGoingMatchTime / 60000.0)).toInt()

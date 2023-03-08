@@ -1,10 +1,12 @@
 package com.project.data.datasource
 
-import com.project.network.hilt.model.TodayMatchEntities
+import com.project.room.model.Match
 import kotlinx.coroutines.flow.Flow
 
 interface RemoteDataSource {
 
-    suspend fun getAllMatches(): Flow<TodayMatchEntities.NetworkMatchResponse>
+    fun getAllMatches(): Flow<List<Match>>
+
+    suspend fun fetchMatchListAndInsertIntoDB()
 
 }
