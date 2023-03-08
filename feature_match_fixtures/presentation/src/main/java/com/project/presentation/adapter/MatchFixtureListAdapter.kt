@@ -24,10 +24,10 @@ class MatchFixtureListAdapter(private var matchList: List<TodayMatchEntities.Net
         holder.binding.matchStatus.text = match.status
         holder.binding.textView2.text = Utilities.convertDate(match.utcDate)
         holder.binding.textView3.text = String.format("MD: %d",match.matchday)
-        holder.binding.firstPlayer.text = match.networkHomeTeam.name
-        holder.binding.secondPlayer.text = match.networkAwayTeam.name
-        holder.binding.firstPlayerScore.text = match.networkScore.networkFullTime.home.toString()
-        holder.binding.secondPlayerScore.text = match.networkScore.networkFullTime.away.toString()
+//        holder.binding.firstPlayer.text = match.networkHomeTeam.name
+//        holder.binding.secondPlayer.text = match.networkAwayTeam.name
+//        holder.binding.firstPlayerScore.text = match.networkScore.networkFullTime.home.toString()
+//        holder.binding.secondPlayerScore.text = match.networkScore.networkFullTime.away.toString()
         holder.binding.matchTime.text = Utilities.showMatchTime(match.status, match.utcDate, match.networkScore)
     }
 

@@ -6,6 +6,7 @@ import com.project.data.datasource.RemoteDataSourceImpl
 import com.project.domain.repository.CompetitionsRepository
 import com.project.domain.usecases.GetAllMatchUseCases
 import com.project.network.hilt.api.ApiService
+import com.project.room.FootballDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,8 +27,8 @@ object DataModule {
     }
 
     @Provides
-    fun provideRemoteDataSource(apiService: ApiService):RemoteDataSource{
-        return RemoteDataSourceImpl(apiService)
+    fun provideRemoteDataSource(footballDao: FootballDao,apiService: ApiService):RemoteDataSource{
+        return RemoteDataSourceImpl(footballDao, apiService)
     }
 
 }
