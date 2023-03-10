@@ -23,7 +23,7 @@ import kotlinx.coroutines.launch
 class MatchListFragment : Fragment() {
 
     private lateinit var binding: FragmentMatchListBinding
-    private val loginViewModel: AllMatchViewModel by activityViewModels()
+    private val allMatchViewModel: AllMatchViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,11 +40,11 @@ class MatchListFragment : Fragment() {
     }
 
     private fun requestAllMatches(){
-        loginViewModel.fetchMatchListAndInsertInDBVM()
-        loginViewModel.getAllMatches()
+        allMatchViewModel.fetchMatchListAndInsertInDBVM()
+        allMatchViewModel.getAllMatches()
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
-                loginViewModel.allMatchUiState.collect {
+                allMatchViewModel.allMatchUiState.collect {
                     when(it){
                         is AllMatchUiState.Success ->{
                             Log.i("=====> ","Success: "+it.matchList)

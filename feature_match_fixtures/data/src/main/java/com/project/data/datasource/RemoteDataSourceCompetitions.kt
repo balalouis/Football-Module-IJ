@@ -1,11 +1,11 @@
 package com.project.data.datasource
 
-import com.project.network.hilt.model.competitions.CompetitionsEntities
+import com.project.room.model.CompetitionsUiState
 import kotlinx.coroutines.flow.Flow
 
 interface RemoteDataSourceCompetitions {
 
-    fun getAllCompetitions(): Flow<List<CompetitionsEntities.Competition>>
+    fun getAllCompetitions(): Flow<List<CompetitionsUiState>>
 
     suspend fun fetchAllCompetitionsAndInsertIntoDB()
 }

@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.project.room.model.CompetitionsUiState
 import com.project.room.model.Match
 import kotlinx.coroutines.flow.Flow
 
@@ -15,4 +16,10 @@ interface FootballDao {
 
     @Query("SELECT * FROM match_list_table")
     fun getAllMatch(): Flow<List<Match>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertCompetitionList(competitionUiStateList: List<CompetitionsUiState>)
+
+    @Query("SELECT * FROM competitions_list_table")
+    fun getAllCompetitions(): Flow<List<CompetitionsUiState>>
 }

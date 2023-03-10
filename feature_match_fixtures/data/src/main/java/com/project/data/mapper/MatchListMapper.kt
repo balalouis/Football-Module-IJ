@@ -1,11 +1,24 @@
 package com.project.data.mapper
 
+import com.project.network.hilt.model.competitions.CompetitionsEntities
 import com.project.network.hilt.model.todaymatches.TodayMatchEntities
 import com.project.room.model.*
 
 class MatchListMapper {
 
     companion object {
+
+        fun convertToCompetitionList(networkCompetitionList: List<CompetitionsEntities.Competition>): List<CompetitionsUiState>{
+            val competitionList: MutableList<CompetitionsUiState> = mutableListOf()
+            for (networkCompetition in networkCompetitionList){
+                val competitionsUiState = CompetitionsUiState(
+                    name = networkCompetition.name,
+                    currentSeason = convertToSession(networkCompetition.currentSeason)
+                )
+                competitionList.add(competitionsUiState)
+            }
+            return competitionList.toList()
+        }
 
         fun convertToUserList(networkMatchList: List<TodayMatchEntities.NetworkMatch>): List<Match> {
             val matchList: MutableList<Match> = mutableListOf()
@@ -39,6 +52,12 @@ class MatchListMapper {
             Score(
                 convertToFullTime(networkScore?.fullTime),
                 convertToHalTime(networkScore?.halfTime)
+            )
+
+        private fun convertToSession(networkCurrentSeason: CompetitionsEntities.CurrentSeason) =
+            CurrentSeason(
+                startDate = networkCurrentSeason.startDate,
+                endDate = networkCurrentSeason.endDate
             )
     }
 }
