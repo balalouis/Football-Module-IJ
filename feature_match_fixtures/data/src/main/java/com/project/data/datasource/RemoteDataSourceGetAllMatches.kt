@@ -3,7 +3,7 @@ package com.project.data.datasource
 import com.project.room.model.Match
 import kotlinx.coroutines.flow.Flow
 
-interface RemoteDataSource {
+interface RemoteDataSourceGetAllMatches {
 
     fun getAllMatches(): Flow<List<Match>>
 

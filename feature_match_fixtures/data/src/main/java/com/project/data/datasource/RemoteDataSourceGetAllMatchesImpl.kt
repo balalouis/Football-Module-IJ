@@ -7,7 +7,7 @@ import com.project.room.FootballDao
 import com.project.room.model.Match
 import kotlinx.coroutines.flow.Flow
 
-class RemoteDataSourceImpl(private val footballDao: FootballDao, private val apiService: ApiService):RemoteDataSource {
+class RemoteDataSourceGetAllMatchesImpl(private val footballDao: FootballDao, private val apiService: ApiService):RemoteDataSourceGetAllMatches {
     override fun getAllMatches(): Flow<List<Match>> = footballDao.getAllMatch()
 
     override suspend fun fetchMatchListAndInsertIntoDB() {

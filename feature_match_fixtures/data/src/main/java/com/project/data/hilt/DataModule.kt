@@ -1,9 +1,9 @@
 package com.project.data.hilt
 
-import com.project.data.CompetitionsRepositoryImpl
-import com.project.data.datasource.RemoteDataSource
-import com.project.data.datasource.RemoteDataSourceImpl
-import com.project.domain.repository.CompetitionsRepository
+import com.project.data.GetAllMatchesRepositoryImpl
+import com.project.data.datasource.RemoteDataSourceGetAllMatches
+import com.project.data.datasource.RemoteDataSourceGetAllMatchesImpl
+import com.project.domain.repository.GetAllMatchesRepository
 import com.project.domain.usecases.GetAllMatchUseCases
 import com.project.network.hilt.api.ApiService
 import com.project.room.FootballDao
@@ -17,18 +17,18 @@ import dagger.hilt.android.components.ViewModelComponent
 object DataModule {
 
     @Provides
-    fun provideGetTodayMatchUseCases(competitionsRepository: CompetitionsRepository): GetAllMatchUseCases {
-        return GetAllMatchUseCases(competitionsRepository)
+    fun provideGetTodayMatchUseCases(getAllMatchesRepository: GetAllMatchesRepository): GetAllMatchUseCases {
+        return GetAllMatchUseCases(getAllMatchesRepository)
     }
 
     @Provides
-    fun provideGetCompetitionsRepository(remoteDataSource: RemoteDataSource): CompetitionsRepository{
-        return CompetitionsRepositoryImpl(remoteDataSource)
+    fun provideGetCompetitionsRepository(remoteDataSourceGetAllMatches: RemoteDataSourceGetAllMatches): GetAllMatchesRepository{
+        return GetAllMatchesRepositoryImpl(remoteDataSourceGetAllMatches)
     }
 
     @Provides
-    fun provideRemoteDataSource(footballDao: FootballDao,apiService: ApiService):RemoteDataSource{
-        return RemoteDataSourceImpl(footballDao, apiService)
+    fun provideRemoteDataSource(footballDao: FootballDao,apiService: ApiService):RemoteDataSourceGetAllMatches{
+        return RemoteDataSourceGetAllMatchesImpl(footballDao, apiService)
     }
 
 }
