@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/feature_match_fixtures/data" />
             <option value="$PROJECT_DIR$/feature_match_fixtures/domain" />
             <option value="$PROJECT_DIR$/feature_match_fixtures/presentation" />
+            <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/network" />
             <option value="$PROJECT_DIR$/room" />
           </set>
