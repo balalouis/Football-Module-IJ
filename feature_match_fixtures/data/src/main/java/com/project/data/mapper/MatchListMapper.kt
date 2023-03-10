@@ -1,6 +1,6 @@
 package com.project.data.mapper
 
-import com.project.network.hilt.model.TodayMatchEntities
+import com.project.network.hilt.model.todaymatches.TodayMatchEntities
 import com.project.room.model.*
 
 class MatchListMapper {

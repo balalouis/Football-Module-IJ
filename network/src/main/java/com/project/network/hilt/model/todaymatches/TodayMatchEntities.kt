@@ -1,4 +1,4 @@
-package com.project.network.hilt.model
+package com.project.network.hilt.model.todaymatches
 
 import java.util.ArrayList
 

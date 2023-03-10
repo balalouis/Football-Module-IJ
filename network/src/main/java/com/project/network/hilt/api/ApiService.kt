@@ -1,7 +1,7 @@
 package com.project.network.hilt.api
 
 import com.project.network.hilt.api.NetworkUtil.Companion.API_KEY
-import com.project.network.hilt.model.TodayMatchEntities
+import com.project.network.hilt.model.todaymatches.TodayMatchEntities
 import retrofit2.http.GET
 import retrofit2.http.Headers
 
