@@ -1,6 +1,6 @@
 package com.project.data.hilt
 
-import com.project.data.GetAllMatchesRepositoryImpl
+import com.project.data.repo.GetAllMatchesRepositoryImpl
 import com.project.data.datasource.RemoteDataSourceGetAllMatches
 import com.project.data.datasource.RemoteDataSourceGetAllMatchesImpl
 import com.project.domain.repository.GetAllMatchesRepository

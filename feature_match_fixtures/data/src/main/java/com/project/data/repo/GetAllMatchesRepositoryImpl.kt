@@ -1,4 +1,4 @@
-package com.project.data
+package com.project.data.repo
 
 import com.project.data.datasource.RemoteDataSourceGetAllMatches
 import com.project.domain.repository.GetAllMatchesRepository

@@ -1,4 +1,4 @@
-package com.project.presentation
+package com.project.presentation.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -11,8 +11,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.project.presentation.uistate.AllMatchUiState
 import com.project.presentation.adapter.MatchFixtureListAdapter
 import com.project.presentation.databinding.FragmentMatchListBinding
+import com.project.presentation.viewmodel.AllMatchViewModel
 import com.project.room.model.Match
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -21,7 +23,7 @@ import kotlinx.coroutines.launch
 class MatchListFragment : Fragment() {
 
     private lateinit var binding: FragmentMatchListBinding
-    private val loginViewModel: CompetitionsViewModel by activityViewModels()
+    private val loginViewModel: AllMatchViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,13 +46,14 @@ class MatchListFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED){
                 loginViewModel.allMatchUiState.collect {
                     when(it){
-                        is CompetitionsUiState.Success ->{
+                        is AllMatchUiState.Success ->{
                             Log.i("=====> ","Success: "+it.matchList)
                             updateMatchListAdapter(it.matchList)
                         }
-                        is CompetitionsUiState.Failure -> {
+                        is AllMatchUiState.Failure -> {
                             Log.i("=====> ","Failure: ${it.exception}")
                         }
+                        else -> {}
                     }
                 }
             }
