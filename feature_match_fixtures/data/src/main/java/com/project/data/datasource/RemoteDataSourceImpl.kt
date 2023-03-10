@@ -1,5 +1,6 @@
 package com.project.data.datasource
 
+import android.util.Log
 import com.project.data.mapper.MatchListMapper
 import com.project.network.hilt.api.ApiService
 import com.project.room.FootballDao
@@ -11,6 +12,7 @@ class RemoteDataSourceImpl(private val footballDao: FootballDao, private val api
 
     override suspend fun fetchMatchListAndInsertIntoDB() {
         val networkMatchList=apiService.getAllMatches().matches
+        Log.i("====> ","$networkMatchList")
         footballDao.insertMatchList(MatchListMapper.convertToUserList(networkMatchList))
     }
 }

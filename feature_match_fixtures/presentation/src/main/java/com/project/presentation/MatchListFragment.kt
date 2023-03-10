@@ -45,6 +45,7 @@ class MatchListFragment : Fragment() {
                 loginViewModel.allMatchUiState.collect {
                     when(it){
                         is CompetitionsUiState.Success ->{
+                            Log.i("=====> ","Success: "+it.matchList)
                             updateMatchListAdapter(it.matchList)
                         }
                         is CompetitionsUiState.Failure -> {
