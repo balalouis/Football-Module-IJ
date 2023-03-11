@@ -3,12 +3,12 @@
 
     <item
         android:id="@id/matchListFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/soccer"
         android:title="@string/today_s_match" />
 
     <item
         android:id="@id/competitionListFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/soccer_field"
         android:title="@string/competition" />
 
 </menu>

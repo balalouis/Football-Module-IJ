@@ -3,10 +3,10 @@ package com.project.football_module
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.project.football_module.databinding.ActivitySingleBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,13 +19,23 @@ class SingleActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_single)
-
-        val navController = this.findNavController(R.id.nav_host_fragment)
-        // Find reference to bottom navigation view
-        val navView: BottomNavigationView = findViewById(R.id.bottom_nav_view)
-        // Hook your navigation controller to bottom navigation view
-        navView.setupWithNavController(navController)
+        binding = ActivitySingleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        navigationSetup()
     }
 
+    private fun navigationSetup(){
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        NavigationUI.setupWithNavController(binding.bottomNavView,navController)
+        appBarSetup(navController)
+    }
+
+    private fun appBarSetup(navController: NavController){
+        appBarConfiguration =
+            AppBarConfiguration(setOf(com.project.navigation.R.id.matchListFragment, com.project.navigation.R.id.competitionListFragment))
+        setupActionBarWithNavController(navController, appBarConfiguration)
+    }
 }
