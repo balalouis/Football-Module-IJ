@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.project.presentation.FixtureFragment
 import com.project.presentation.TableFragment
 import com.project.presentation.TeamFragment
-import com.project.presentation.adapter.ViewPageAdapter
+import com.project.detail.adapter.ViewPageAdapter
 import com.project.presentation.databinding.FragmentViewPagerBinding
 
 class ViewPagerFragment : Fragment() {

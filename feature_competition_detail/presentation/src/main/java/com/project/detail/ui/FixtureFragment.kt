@@ -1,4 +1,4 @@
-package com.project.presentation
+package com.project.detail.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

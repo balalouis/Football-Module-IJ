@@ -1,5 +1,5 @@
 
-package com.project.presentation.adapter
+package com.project.detail.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
