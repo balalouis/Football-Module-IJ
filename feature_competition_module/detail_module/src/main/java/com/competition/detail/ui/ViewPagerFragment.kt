@@ -22,6 +22,12 @@ class ViewPagerFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initAdapter()
+    }
+
     private fun initAdapter(){
 
         val viewPageAdapter = ViewPageAdapter(

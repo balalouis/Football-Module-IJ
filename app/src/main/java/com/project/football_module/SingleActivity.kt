@@ -35,7 +35,7 @@ class SingleActivity : AppCompatActivity(){
 
     private fun appBarSetup(navController: NavController){
         appBarConfiguration =
-            AppBarConfiguration(setOf(com.project.navigation.R.id.matchListFragment, com.project.navigation.R.id.competitionListFragment))
+            AppBarConfiguration(setOf(com.project.presentation.R.id.matchListFragment, com.project.presentation.R.id.competitionListFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 }
