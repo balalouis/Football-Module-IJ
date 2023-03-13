@@ -12,6 +12,7 @@ class MatchListMapper {
             val competitionList: MutableList<CompetitionsUiState> = mutableListOf()
             for (networkCompetition in networkCompetitionList){
                 val competitionsUiState = CompetitionsUiState(
+                    id = networkCompetition.id.toLong(),
                     name = networkCompetition.name,
                     currentSeason = convertToSession(networkCompetition.currentSeason)
                 )

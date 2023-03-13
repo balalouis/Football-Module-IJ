@@ -9,6 +9,7 @@ import com.google.gson.reflect.TypeToken
 @Entity(tableName = "competitions_list_table")
 data class CompetitionsUiState(
     @PrimaryKey(autoGenerate = false)
+    var id: Long = 0L,
     val name: String,
     val currentSeason: CurrentSeason
 )
