@@ -1,4 +1,4 @@
-package com.project.presentation.uistate
+package com.project.matchlist.uistate
 
 import com.project.room.model.CompetitionsUiState
 

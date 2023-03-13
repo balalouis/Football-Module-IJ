@@ -1,4 +1,4 @@
-package com.project.presentation.utils
+package com.project.matchlist.utils
 
 import android.annotation.SuppressLint
 import com.project.room.model.Score

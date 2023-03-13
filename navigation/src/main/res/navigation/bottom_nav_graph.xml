@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/matchListFragment"
-        android:name="com.project.presentation.ui.MatchListFragment"
+        android:name="com.project.matchlist.ui.MatchListFragment"
         android:label="MatchList"
         tools:layout="@layout/fragment_match_list" />
 
     <fragment
         android:id="@+id/competitionListFragment"
-        android:name="com.project.presentation.ui.CompetitionListFragment"
+        android:name="com.project.matchlist.ui.CompetitionListFragment"
         android:label="Competition"
         tools:layout="@layout/fragment_competition_list" />
 

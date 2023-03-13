@@ -1,10 +1,10 @@
-package com.project.presentation.adapter
+package com.project.matchlist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.presentation.databinding.CompetitionsListRowItemBinding
-import com.project.presentation.utils.Utilities
+import com.project.matchlist.utils.Utilities
 import com.project.room.model.CompetitionsUiState
 
 class CompetitionListAdapter(private var competitionsUiStateList: List<CompetitionsUiState>) :

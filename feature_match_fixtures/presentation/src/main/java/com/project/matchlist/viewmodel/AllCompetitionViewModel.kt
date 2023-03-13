@@ -1,9 +1,9 @@
-package com.project.presentation.viewmodel
+package com.project.matchlist.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.project.domain.usecases.GetAllCompetitionUseCases
-import com.project.presentation.uistate.AllCompetitionUiState
+import com.project.matchlist.uistate.AllCompetitionUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

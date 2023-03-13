@@ -1,13 +1,10 @@
-package com.project.presentation.ui
+package com.project.detail.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.project.presentation.FixtureFragment
-import com.project.presentation.TableFragment
-import com.project.presentation.TeamFragment
 import com.project.detail.adapter.ViewPageAdapter
 import com.project.presentation.databinding.FragmentViewPagerBinding
 

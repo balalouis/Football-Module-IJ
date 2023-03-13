@@ -1,4 +1,4 @@
-package com.project.presentation.ui
+package com.project.matchlist.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -11,10 +11,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.project.presentation.adapter.CompetitionListAdapter
+import com.project.matchlist.adapter.CompetitionListAdapter
 import com.project.presentation.databinding.FragmentCompetitionListBinding
-import com.project.presentation.uistate.AllCompetitionUiState
-import com.project.presentation.viewmodel.AllCompetitionViewModel
+import com.project.matchlist.uistate.AllCompetitionUiState
+import com.project.matchlist.viewmodel.AllCompetitionViewModel
 import com.project.room.model.CompetitionsUiState
 import kotlinx.coroutines.launch
 
