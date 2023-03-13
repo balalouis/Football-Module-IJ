@@ -11,8 +11,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/feature_competition_detail" />
-            <option value="$PROJECT_DIR$/feature_competition_detail/competition_detail_presentation" />
             <option value="$PROJECT_DIR$/feature_match_fixtures" />
             <option value="$PROJECT_DIR$/feature_match_fixtures/data" />
             <option value="$PROJECT_DIR$/feature_match_fixtures/domain" />
