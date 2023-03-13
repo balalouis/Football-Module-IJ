@@ -15,6 +15,19 @@
         android:id="@+id/competitionListFragment"
         android:name="com.project.matchlist.ui.CompetitionListFragment"
         android:label="Competition"
-        tools:layout="@layout/fragment_competition_list" />
+        tools:layout="@layout/fragment_competition_list" >
+
+        <action android:id="@+id/action_competitionsFragment_to_competitionDetailsFragment"
+            app:destination="@id/view_pager_nav_graph">
+
+            <argument android:name="competition_id"
+                app:argType="integer"
+                android:defaultValue="0" />
+
+        </action>
+
+    </fragment>
+
+    <include app:graph="@navigation/view_pager_nav_graph"/>
 
 </navigation>

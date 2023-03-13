@@ -8,6 +8,10 @@
         android:id="@+id/viewPager"
         android:name="com.competition.detail.ui.ViewPagerFragment">
 
+        <argument android:name="competition"
+            app:argType="integer"
+            android:defaultValue="0"/>
+
     </fragment>
 
 </navigation>
