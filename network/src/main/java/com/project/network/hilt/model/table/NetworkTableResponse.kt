@@ -1,50 +1,51 @@
 package com.project.network.hilt.model.table
 
-sealed class TableEntities{
+
+sealed class NetworkTableEntities{
 
     data class NetworkTableResponse(
-        val area: Area,
-        val competition: Competition,
-        val filters: Filters,
-        val season: Season,
-        val standings: List<Standing>): TableEntities()
+        val area: NetworkArea,
+        val competition: NetworkCompetition,
+        val filters: NetworkFilters,
+        val season: NetworkSeason,
+        val standings: List<NetworkStanding>): NetworkTableEntities()
 
-    data class Area(
+    data class NetworkArea(
         val code: String,
         val flag: String,
         val id: Int,
         val name: String
-    ): TableEntities()
+    ): NetworkTableEntities()
 
-    data class Competition(
+    data class NetworkCompetition(
         val code: String,
         val emblem: String,
         val id: Int,
         val name: String,
         val type: String
-    ):TableEntities()
+    ):NetworkTableEntities()
 
-    data class Filters(
+    data class NetworkFilters(
         val season: String
-    ):TableEntities()
+    ):NetworkTableEntities()
 
-    data class Season(
+    data class NetworkSeason(
         val currentMatchday: Int,
         val endDate: String,
         val id: Int,
         val startDate: String,
         val winner: Any
-    ):TableEntities()
+    ):NetworkTableEntities()
 
 
-    data class Standing(
+    data class NetworkStanding(
         val group: Any,
         val stage: String,
-        val table: List<Table>,
+        val table: List<NetworkTable>,
         val type: String
-    ):TableEntities()
+    ):NetworkTableEntities()
 
-    data class Table(
+    data class NetworkTable(
         val draw: Int,
         val form: String,
         val goalDifference: Int,
@@ -54,15 +55,15 @@ sealed class TableEntities{
         val playedGames: Int,
         val points: Int,
         val position: Int,
-        val team: Team,
+        val team: NetworkTeam,
         val won: Int
-    ):TableEntities()
+    ):NetworkTableEntities()
 
-    data class Team(
+    data class NetworkTeam(
         val crest: String,
         val id: Int,
         val name: String,
         val shortName: String,
         val tla: String
-    ):TableEntities()
+    ):NetworkTableEntities()
 }
