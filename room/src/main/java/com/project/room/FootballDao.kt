@@ -25,8 +25,8 @@ interface FootballDao {
     fun getAllCompetitions(): Flow<List<CompetitionsUiState>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertTeamList(matchList: List<TableUiState>)
+    suspend fun insertTableList(matchList: TableUiState)
 
     @Query("SELECT * FROM table_list")
-    fun getTeamList(): Flow<List<TableUiState>>
+    fun getTableList(): Flow<TableUiState>
 }
