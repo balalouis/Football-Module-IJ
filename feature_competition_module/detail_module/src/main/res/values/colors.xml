@@ -11,4 +11,11 @@
     <!--Icon Colors-->
     <color name="iconActiveColor">#333333</color>
     <color name="iconInactiveColor">#767676</color>
+
+    <!--Text Colors-->
+    <color name="titleColor">#545454</color>
+    <color name="textColor">#333333</color>
+    <color name="scoreBoardColor">#B3B3B3</color>
+    <color name="tabActiveItemColor">#000000</color>
+
 </resources>
