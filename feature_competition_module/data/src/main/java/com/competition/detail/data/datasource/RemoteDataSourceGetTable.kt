@@ -1,10 +1,10 @@
 package com.competition.detail.data.datasource
 
-import com.project.network.hilt.model.table.NetworkTableEntities
+import com.project.room.model.Standing
 import kotlinx.coroutines.flow.Flow
 
 interface RemoteDataSourceGetTable {
-    fun getAllTable(): Flow<List<NetworkTableEntities.NetworkTable>>
+    fun getAllTable(): Flow<List<Standing>>
 
     suspend fun fetchTableListAndInsertIntoDB(id:Long)
 }

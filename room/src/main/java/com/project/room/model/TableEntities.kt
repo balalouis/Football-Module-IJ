@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "table_list")
 data class TableUiState(
     @PrimaryKey(autoGenerate = false)
-    val standings: List<Standing>
+    val table: List<Table> = emptyList()
 )
 
 data class Standing(

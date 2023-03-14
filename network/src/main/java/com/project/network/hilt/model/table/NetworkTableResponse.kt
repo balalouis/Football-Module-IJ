@@ -4,10 +4,6 @@ package com.project.network.hilt.model.table
 sealed class NetworkTableEntities{
 
     data class NetworkTableResponse(
-        val area: NetworkArea,
-        val competition: NetworkCompetition,
-        val filters: NetworkFilters,
-        val season: NetworkSeason,
         val standings: List<NetworkStanding>): NetworkTableEntities()
 
     data class NetworkArea(
