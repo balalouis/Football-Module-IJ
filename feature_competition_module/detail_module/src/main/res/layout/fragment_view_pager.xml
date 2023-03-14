@@ -28,11 +28,11 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabBackground="@color/teal_200"
+            app:tabBackground="@color/white"
             app:tabGravity="fill"
             app:tabIndicatorHeight="1dp"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/white"
+            app:tabSelectedTextColor="@color/black"
             app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
             app:tabTextColor="@color/black" />
 
