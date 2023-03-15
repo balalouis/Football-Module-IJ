@@ -3,10 +3,6 @@ package com.project.room.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-data class TableUiState(
-    val table: List<Table> = emptyList()
-)
-
 data class Standing(
     val table: List<Table>
 )
