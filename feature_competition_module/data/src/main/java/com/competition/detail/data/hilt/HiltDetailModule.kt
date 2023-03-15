@@ -1,7 +1,7 @@
 package com.competition.detail.data.hilt
 
-import com.competition.detail.data.datasource.RemoteDataSourceGetTable
-import com.competition.detail.data.datasource.RemoteDataSourceGetTableImpl
+import com.competition.detail.data.datasource.table.RemoteDataSourceGetTable
+import com.competition.detail.data.datasource.table.RemoteDataSourceGetTableImpl
 import com.competition.detail.data.repo.TableRepositoryImpl
 import com.competition.detail.domain.repo.TableRepository
 import com.competition.detail.domain.usecases.GetAllTableUseCases

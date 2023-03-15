@@ -1,6 +1,6 @@
 package com.competition.detail.data.repo
 
-import com.competition.detail.data.datasource.RemoteDataSourceGetTable
+import com.competition.detail.data.datasource.table.RemoteDataSourceGetTable
 import com.competition.detail.domain.repo.TableRepository
 import com.project.room.model.Table
 import kotlinx.coroutines.flow.Flow

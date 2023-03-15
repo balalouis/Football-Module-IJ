@@ -1,4 +1,4 @@
-package com.competition.detail.data.datasource
+package com.competition.detail.data.datasource.table
 
 import com.competition.detail.data.mapper.TableMapper
 import com.project.network.hilt.api.ApiService
