@@ -5,13 +5,13 @@ import com.project.room.model.Table
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetAllTableUseCases @Inject constructor (private val getAllMatchRepository: TableRepository){
+class GetAllTableUseCases @Inject constructor (private val tableRepository: TableRepository){
 
     fun getAllTables(): Flow<List<Table>> {
-        return getAllMatchRepository.getAllTables()
+        return tableRepository.getAllTables()
     }
 
     suspend fun insertTableList(id:Long){
-        getAllMatchRepository.insertTableList(id)
+        tableRepository.insertTableList(id)
     }
 }
