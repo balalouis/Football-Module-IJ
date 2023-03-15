@@ -7,7 +7,6 @@ import androidx.room.Query
 import com.project.room.model.CompetitionsUiState
 import com.project.room.model.Match
 import com.project.room.model.Table
-import com.project.room.model.TableUiState
 import kotlinx.coroutines.flow.Flow
 
 @Dao
