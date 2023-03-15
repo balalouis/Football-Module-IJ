@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.competition.detail.databinding.FragmentViewPagerBinding
 import com.project.detail.adapter.ViewPageAdapter
 
@@ -25,33 +26,35 @@ class ViewPagerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        getIntents()
         initAdapter()
     }
 
     private fun initAdapter(){
-
+        val bundle = Bundle().apply {
+            putLong("id" ,competitionId)
+        }
         val viewPageAdapter = ViewPageAdapter(
             childFragmentManager
         )
         viewPageAdapter.addFragment(TableFragment().apply {
-            arguments = Bundle().apply {
-                putLong("id", competitionId)
-            }
+            arguments = bundle
         }, "Table")
         viewPageAdapter.addFragment(FixturesFragment().apply {
-            arguments = Bundle().apply {
-                putLong("id", competitionId)
-            }
+            arguments = bundle
         }, "Fixtures")
         viewPageAdapter.addFragment(TeamFragment().apply {
-            arguments = Bundle().apply {
-                putLong("id", competitionId)
-            }
+            arguments = bundle
         }, "Team")
 
         // Set up the ViewPager with the sections adapter.
         binding.container.adapter = viewPageAdapter
         binding.tabs.setupWithViewPager(binding.container)
+    }
+
+    private fun getIntents() {
+        val args: ViewPagerFragmentArgs by navArgs()
+        competitionId = args.competitionId.toLong()
     }
 
 }

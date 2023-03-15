@@ -8,7 +8,7 @@
         android:id="@+id/viewPager"
         android:name="com.competition.detail.ui.ViewPagerFragment">
 
-        <argument android:name="competition"
+        <argument android:name="competition_id"
             app:argType="integer"
             android:defaultValue="0"/>
 

@@ -24,6 +24,7 @@ class TableFragment : Fragment() {
 
     private lateinit var binding: FragmentTableBinding
     private val tableViewModel: TableViewModel by activityViewModels()
+    var competitionId: Long = 0L
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,13 +37,16 @@ class TableFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        getIntents()
         requestTable()
     }
 
+    private fun getIntents() {
+        competitionId = arguments?.getLong("id")!!
+    }
 
     private fun requestTable(){
-        val id:Long = 2016
-        tableViewModel.fetchMatchListAndInsertInDBVM(id)
+        tableViewModel.fetchMatchListAndInsertInDBVM(competitionId)
         tableViewModel.getAllTables()
 
         lifecycleScope.launch {
@@ -65,7 +69,6 @@ class TableFragment : Fragment() {
     }
 
    private fun updateTableListAdapter(tableList: List<Table>?) {
-        Log.i("-----> ","updateTableListAdapter")
         val tableListAdapter = tableList?.let { context?.let { _ -> TableListAdapter(it) } }
         val tableListRecyclerView = binding.tableRecyclerview
         tableListRecyclerView.adapter = tableListAdapter
