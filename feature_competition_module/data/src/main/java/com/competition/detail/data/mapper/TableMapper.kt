@@ -4,7 +4,7 @@ import com.project.network.hilt.model.table.NetworkTableEntities
 import com.project.room.model.Table
 import com.project.room.model.Team
 
-class TeamMapper {
+class TableMapper {
 
     companion object {
         fun convertToTeamList(networkStandingList: List<NetworkTableEntities.NetworkStanding>): List<Table>{

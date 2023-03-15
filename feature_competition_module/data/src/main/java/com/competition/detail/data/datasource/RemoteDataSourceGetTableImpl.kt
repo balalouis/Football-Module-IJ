@@ -1,6 +1,6 @@
 package com.competition.detail.data.datasource
 
-import com.competition.detail.data.mapper.TeamMapper
+import com.competition.detail.data.mapper.TableMapper
 import com.project.network.hilt.api.ApiService
 import com.project.room.FootballDao
 import com.project.room.model.Table
@@ -13,6 +13,6 @@ class RemoteDataSourceGetTableImpl(private val footballDao: FootballDao, private
 
     override suspend fun fetchTableListAndInsertIntoDB(id:Long) {
         val networkStandingList=apiService.getTablesByCompetition(id,"TOTAL").standings
-        footballDao.insertTableList(tableList = TeamMapper.convertToTeamList(networkStandingList))
+        footballDao.insertTableList(tableList = TableMapper.convertToTeamList(networkStandingList))
     }
 }
