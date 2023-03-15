@@ -21,7 +21,6 @@ class TableListAdapter(private var tableList: List<Table>) :
 
     override fun onBindViewHolder(holder: TableListViewHolder, position: Int) {
         val table=tableList[position]
-        Log.i("-----> onBindViewHolder","${table.team.name}")
         holder.binding.id.text = table.position.toString()
         holder.binding.clubName.text = table.team.name
         holder.binding.score1.text = table.playedGames.toString()

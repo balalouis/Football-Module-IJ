@@ -54,7 +54,6 @@ class TableFragment : Fragment() {
                 tableViewModel.allTableUiState.collect {
                     when(it){
                         is AllTableUiState.Success ->{
-                            Log.i("-----> Success",""+it.tableList?.size)
                             if(it.tableList?.size!! > 0) {
                                 updateTableListAdapter(it.tableList)
                             }
