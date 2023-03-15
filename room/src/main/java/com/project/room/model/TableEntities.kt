@@ -3,9 +3,7 @@ package com.project.room.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "table_list")
 data class TableUiState(
-    @PrimaryKey(autoGenerate = false)
     val table: List<Table> = emptyList()
 )
 
@@ -13,7 +11,9 @@ data class Standing(
     val table: List<Table>
 )
 
+@Entity(tableName = "table_list")
 data class Table(
+    @PrimaryKey(autoGenerate = false)
     val position: Int,
     val team: Team,
     val playedGames: Int,

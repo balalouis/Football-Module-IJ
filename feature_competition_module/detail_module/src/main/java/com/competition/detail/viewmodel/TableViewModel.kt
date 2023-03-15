@@ -25,7 +25,7 @@ class TableViewModel @Inject constructor(
             getAllTableUseCases.getAllTables().catch {
                 _allTableUiState.value = AllTableUiState.Failure(it)
             }.collect {
-                _allTableUiState.value = AllTableUiState.Success(it.table)
+                _allTableUiState.value = AllTableUiState.Success(it)
             }
         }
     }

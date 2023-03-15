@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.project.room.model.*
 
-@Database(entities = [Match::class,CompetitionsUiState::class, TableUiState::class], version = 1)
+@Database(entities = [Match::class,CompetitionsUiState::class, Table::class], version = 1)
 @TypeConverters(MatchTypeConverter::class, AwayTeamTypeConverter::class,
     HomeTeamTypeConverter::class, ScoreTypeConverter::class,
     FullTimeTypeConverter::class, HalfTimeTypeConverter::class,
