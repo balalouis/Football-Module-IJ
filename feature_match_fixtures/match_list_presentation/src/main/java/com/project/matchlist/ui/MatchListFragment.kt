@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.common.ui.UtilitiesView
 import com.project.matchlist.uistate.AllMatchUiState
 import com.project.matchlist.adapter.MatchFixtureListAdapter
 import com.project.presentation.databinding.FragmentMatchListBinding
@@ -71,21 +72,14 @@ class MatchListFragment : Fragment() {
     }
 
     private fun showOrHideItemInList(needToShow: Boolean){
-        showOrHideView(binding.noListItemLayout,needToShow)
-        showOrHideView(binding.fixturesRecyclerview,!needToShow)
-        showOrHideView(binding.noInternetLayout, !needToShow)
+        UtilitiesView.showOrHideView(binding.noListItemLayout,needToShow)
+        UtilitiesView.showOrHideView(binding.fixturesRecyclerview,!needToShow)
+        UtilitiesView.showOrHideView(binding.noInternetLayout, !needToShow)
     }
 
     private fun showOrHideNoInternet(needToShow: Boolean) {
-        showOrHideView(binding.fixturesRecyclerview,!needToShow)
-        showOrHideView(binding.noInternetLayout,needToShow)
+        UtilitiesView.showOrHideView(binding.fixturesRecyclerview,!needToShow)
+        UtilitiesView.showOrHideView(binding.noInternetLayout,needToShow)
     }
 
-    private fun showOrHideView(view: View, needToShow: Boolean){
-        if(needToShow){
-            view.visibility = View.VISIBLE
-        }else{
-            view.visibility = View.GONE
-        }
-    }
 }
