@@ -3,9 +3,11 @@ package com.project.football_module
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.project.football_module.databinding.ActivitySingleBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,5 +39,14 @@ class SingleActivity : AppCompatActivity(){
         appBarConfiguration =
             AppBarConfiguration(setOf(com.project.presentation.R.id.matchListFragment, com.project.presentation.R.id.competitionListFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if(destination.id == com.competition.detail.R.id.viewPager) {
+                supportActionBar?.setHomeAsUpIndicator(com.common.ui.R.drawable.ic_arrow_back_black_24dp)
+            }
+        }
     }
+
+    override fun onSupportNavigateUp() =
+        findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration)
 }

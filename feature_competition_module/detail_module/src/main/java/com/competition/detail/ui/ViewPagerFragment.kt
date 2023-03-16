@@ -1,7 +1,9 @@
 package com.competition.detail.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -34,7 +36,8 @@ class ViewPagerFragment : Fragment() {
     }
 
     private fun setTitle(){
-        (activity as AppCompatActivity?)!!.supportActionBar?.title = resources.getString(R.string.premier_league)
+        val actionBar=(activity as AppCompatActivity?)!!.supportActionBar
+        actionBar?.title = resources.getString(R.string.premier_league)
     }
 
     private fun initAdapter(){
