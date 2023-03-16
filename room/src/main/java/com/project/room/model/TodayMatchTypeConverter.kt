@@ -21,6 +21,24 @@ class MatchTypeConverter {
 
 }
 
+
+class MatchesByDateTypeConverter {
+
+    val gson = Gson()
+
+    @TypeConverter
+    fun matchesByDateToString(matchesByDate: MatchesByDate): String {
+        return gson.toJson(matchesByDate)
+    }
+
+    @TypeConverter
+    fun stringToMatchesByDate(matchesByDateString: String): MatchesByDate {
+        val objectType = object : TypeToken<MatchesByDate>() {}.type
+        return gson.fromJson(matchesByDateString, objectType)
+    }
+
+}
+
 class AwayTeamTypeConverter {
 
     val gson = Gson()
