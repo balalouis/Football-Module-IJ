@@ -38,6 +38,13 @@ class MatchListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         requestAllMatches()
+        retryRequest()
+    }
+
+    private fun retryRequest(){
+        binding.btnRetry.setOnClickListener {
+            requestAllMatches()
+        }
     }
 
     private fun requestAllMatches(){
@@ -48,6 +55,7 @@ class MatchListFragment : Fragment() {
                 allMatchViewModel.allMatchUiState.collect {
                     when(it){
                         is AllMatchUiState.Success ->{
+                            Log.i("====> ","Matches "+ it.matchList!!.size)
                             if(it.matchList?.size!=0) {
                                 updateMatchListAdapter(it.matchList)
                                 showOrHideItemInList(false)
