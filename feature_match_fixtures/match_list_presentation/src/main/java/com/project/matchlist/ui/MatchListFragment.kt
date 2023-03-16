@@ -72,13 +72,7 @@ class MatchListFragment : Fragment() {
     }
 
     private fun noItemInList(needToShow: Boolean){
-        hideView(binding.includeNoListItems,needToShow)
-    }
-
-    private fun enableView(view: View, needToEnable:Boolean){
-        if(needToEnable){
-            view.isEnabled = needToEnable
-        }
+        hideView(binding.noListItemLayout,needToShow)
     }
 
     private fun hideView(view: View, needToShow: Boolean){
