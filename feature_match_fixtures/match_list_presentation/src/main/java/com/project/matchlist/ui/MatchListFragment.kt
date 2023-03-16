@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -47,12 +48,16 @@ class MatchListFragment : Fragment() {
                 allMatchViewModel.allMatchUiState.collect {
                     when(it){
                         is AllMatchUiState.Success ->{
-                            updateMatchListAdapter(it.matchList)
+                            if(it.matchList?.size!=0) {
+                                updateMatchListAdapter(it.matchList)
+                                noItemInList(false)
+                            }else{
+                                noItemInList(true)
+                            }
                         }
                         is AllMatchUiState.Failure -> {
                             Log.i("=====> ","Failure: ${it.exception}")
                         }
-                        else -> {}
                     }
                 }
             }
@@ -64,5 +69,23 @@ class MatchListFragment : Fragment() {
         val matchListRecyclerView = binding.fixturesRecyclerview
         matchListRecyclerView.adapter = matchListAdapter
         matchListRecyclerView.layoutManager = LinearLayoutManager(activity)
+    }
+
+    private fun noItemInList(needToShow: Boolean){
+        hideView(binding.includeNoListItems,needToShow)
+    }
+
+    private fun enableView(view: View, needToEnable:Boolean){
+        if(needToEnable){
+            view.isEnabled = needToEnable
+        }
+    }
+
+    private fun hideView(view: View, needToShow: Boolean){
+        if(needToShow){
+            view.visibility = View.VISIBLE
+        }else{
+            view.visibility = View.GONE
+        }
     }
 }
