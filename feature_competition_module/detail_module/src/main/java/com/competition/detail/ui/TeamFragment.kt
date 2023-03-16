@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.competition.detail.adapter.TeamListAdapter
 import com.competition.detail.databinding.FragmentTeamBinding
@@ -69,6 +70,6 @@ class TeamFragment : Fragment() {
         val teamListAdapter = teamRoomList?.let { context?.let { _ -> TeamListAdapter(it) } }
         val teamListRecyclerView = binding.teamRecyclerview
         teamListRecyclerView.adapter = teamListAdapter
-        teamListRecyclerView.layoutManager = LinearLayoutManager(activity)
+        teamListRecyclerView.layoutManager = GridLayoutManager(activity,2)
     }
 }
