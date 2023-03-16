@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -50,9 +49,9 @@ class MatchListFragment : Fragment() {
                         is AllMatchUiState.Success ->{
                             if(it.matchList?.size!=0) {
                                 updateMatchListAdapter(it.matchList)
-                                noItemInList(false)
+                                showOrHideItemInList(false)
                             }else{
-                                noItemInList(true)
+                                showOrHideItemInList(true)
                             }
                         }
                         is AllMatchUiState.Failure -> {
@@ -71,11 +70,18 @@ class MatchListFragment : Fragment() {
         matchListRecyclerView.layoutManager = LinearLayoutManager(activity)
     }
 
-    private fun noItemInList(needToShow: Boolean){
-        hideView(binding.noListItemLayout,needToShow)
+    private fun showOrHideItemInList(needToShow: Boolean){
+        showOrHideView(binding.noListItemLayout,needToShow)
+        showOrHideView(binding.fixturesRecyclerview,!needToShow)
+        showOrHideView(binding.noInternetLayout, !needToShow)
     }
 
-    private fun hideView(view: View, needToShow: Boolean){
+    private fun showOrHideNoInternet(needToShow: Boolean) {
+        showOrHideView(binding.fixturesRecyclerview,!needToShow)
+        showOrHideView(binding.noInternetLayout,needToShow)
+    }
+
+    private fun showOrHideView(view: View, needToShow: Boolean){
         if(needToShow){
             view.visibility = View.VISIBLE
         }else{
