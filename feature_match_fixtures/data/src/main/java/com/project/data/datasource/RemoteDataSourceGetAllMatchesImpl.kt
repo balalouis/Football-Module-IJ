@@ -12,7 +12,6 @@ class RemoteDataSourceGetAllMatchesImpl(private val footballDao: FootballDao, pr
 
     override suspend fun fetchMatchListAndInsertIntoDB() {
         val networkMatchList=apiService.getAllMatches().matches
-        Log.i("====> ","$networkMatchList")
         footballDao.insertMatchList(MatchListMapper.convertToUserList(networkMatchList))
     }
 }

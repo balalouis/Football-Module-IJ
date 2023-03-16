@@ -13,7 +13,6 @@ class RDSGetMatchesByDateImpl(private val footballDao: FootballDao, private val 
 
     override suspend fun fetchMatchesByDateAndInsertIntoDB(id: Long, date: String) {
         val networkMatchList=apiService.getMatchesByCompetition(id,date,date).matches
-        Log.i("====> ","$networkMatchList")
         footballDao.insertMatchesByDateList(MatchesMapper.convertToUserList(networkMatchList))
     }
 }

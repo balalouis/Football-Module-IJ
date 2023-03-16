@@ -30,7 +30,6 @@ class CompetitionListAdapter(private var competitionsUiStateList: List<Competiti
         holder.binding.competitionName.text = competitions.name
 
         holder.binding.root.setOnClickListener{
-            Log.i("=====> ","${competitions.id}")
             val userIdArgs = competitions.id
             val action = CompetitionListFragmentDirections.actionCompetitionsFragmentToCompetitionDetailsFragment(userIdArgs)
             launchScreen(it, action)

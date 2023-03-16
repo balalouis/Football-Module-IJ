@@ -14,7 +14,6 @@ class RemoteDataSourceGetTeamImpl(private val footballDao: FootballDao, private 
 
     override suspend fun fetchTableListAndInsertIntoDB(id:Long) {
         val networkTeamList=apiService.getTeamsByCompetition(id).teams
-        Log.i("-----> RDS","${networkTeamList.size}")
         footballDao.insertRoomTeamList(roomTeamList = TeamMapper.convertToRoomTeamList(networkTeamList))
     }
 }

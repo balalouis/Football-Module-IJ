@@ -45,7 +45,6 @@ class CompetitionListFragment : Fragment() {
                 viewModel.allCompetitionUiState.collect {
                     when(it){
                         is AllCompetitionUiState.Success ->{
-                            Log.i("=====> ","Success: "+it.competitionsUiStateList)
                             updateCompetitionListAdapter(it.competitionsUiStateList)
                         }
                         is AllCompetitionUiState.Failure -> {

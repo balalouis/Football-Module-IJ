@@ -47,7 +47,6 @@ class MatchListFragment : Fragment() {
                 allMatchViewModel.allMatchUiState.collect {
                     when(it){
                         is AllMatchUiState.Success ->{
-                            Log.i("=====> ","Success: "+it.matchList)
                             updateMatchListAdapter(it.matchList)
                         }
                         is AllMatchUiState.Failure -> {
