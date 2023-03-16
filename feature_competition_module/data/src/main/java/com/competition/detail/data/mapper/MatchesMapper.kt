@@ -8,23 +8,10 @@ class MatchesMapper {
 
     companion object {
 
-        fun convertToCompetitionList(networkCompetitionList: List<CompetitionsEntities.Competition>): List<CompetitionsUiState>{
-            val competitionList: MutableList<CompetitionsUiState> = mutableListOf()
-            for (networkCompetition in networkCompetitionList){
-                val competitionsUiState = CompetitionsUiState(
-                    id = networkCompetition.id,
-                    name = networkCompetition.name,
-                    currentSeason = convertToSession(networkCompetition.currentSeason)
-                )
-                competitionList.add(competitionsUiState)
-            }
-            return competitionList.toList()
-        }
-
-        fun convertToUserList(networkMatchList: List<TodayMatchEntities.NetworkMatch>): List<Match> {
-            val matchList: MutableList<Match> = mutableListOf()
+        fun convertToUserList(networkMatchList: List<TodayMatchEntities.NetworkMatch>): List<MatchesByDate> {
+            val matchesByDateList: MutableList<MatchesByDate> = mutableListOf()
             for (networkMatch in networkMatchList) {
-                val match = Match(
+                val matchesByDate = MatchesByDate(
                     awayTeam = convertToAwayTeam(networkMatch.awayTeam),
                     homeTeam = convertToHomeTeam(networkMatch.homeTeam),
                     matchday = networkMatch.matchday,
@@ -32,9 +19,9 @@ class MatchesMapper {
                     status = networkMatch.status,
                     utcDate = networkMatch.utcDate
                 )
-                matchList.add(match)
+                matchesByDateList.add(matchesByDate)
             }
-            return matchList.toList()
+            return matchesByDateList.toList()
         }
 
         private fun convertToAwayTeam(networkAwayTeam: TodayMatchEntities.NetworkAwayTeam?) =

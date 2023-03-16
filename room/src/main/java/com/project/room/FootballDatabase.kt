@@ -10,7 +10,7 @@ import com.project.room.model.*
     HomeTeamTypeConverter::class, ScoreTypeConverter::class,
     FullTimeTypeConverter::class, HalfTimeTypeConverter::class,
     CurrentSeasonTypeConverter::class, TableListConverter::class,TeamTypeConverter::class, TableTypeConverter::class,
-    RoomTeamTypeConverter::class)
+    RoomTeamTypeConverter::class, MatchesByDate::class)
 abstract class FootballDatabase : RoomDatabase() {
     abstract fun footballDao(): FootballDao
 }

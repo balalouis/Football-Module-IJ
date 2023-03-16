@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MatchesByDateViewModel @Inject constructor(
+class FixtureViewModel @Inject constructor(
     private val getMatchesByDateUseCases: GetMatchesByDateUseCases
 ) : ViewModel() {
 
@@ -33,9 +33,9 @@ class MatchesByDateViewModel @Inject constructor(
         }
     }
 
-    fun fetchMatchesByDateListAndInsertInDBVM(){
+    fun fetchMatchesByDateListAndInsertInDBVM(id: Long, date: String){
         viewModelScope.launch {
-            getMatchesByDateUseCases.insertMatchesByDateList()
+            getMatchesByDateUseCases.insertMatchesByDateList(id,date)
         }
     }
 

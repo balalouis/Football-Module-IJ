@@ -14,6 +14,18 @@ data class Match(
     val utcDate: String =""
 )
 
+
+@Entity(tableName = "matches_by_date_list_table")
+data class MatchesByDate(
+    @PrimaryKey(autoGenerate = false)
+    val awayTeam: AwayTeam,
+    val homeTeam: HomeTeam? =null,
+    val matchday: Int = 0,
+    val score: Score? =null,
+    val status: String = "",
+    val utcDate: String =""
+)
+
 data class AwayTeam(
     val name: String? = ""
 )

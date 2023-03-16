@@ -1,26 +1,26 @@
-package com.project.matchlist.adapter
+package com.competition.detail.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.project.presentation.databinding.MatchListRowItemBinding
+import com.competition.detail.databinding.FixtureListRowBinding
 import com.competition.detail.utils.Utilities
-import com.project.room.model.Match
+import com.project.room.model.MatchesByDate
 
-class MatchFixtureListAdapter(private var matchList: List<Match>) :
-    RecyclerView.Adapter<MatchFixtureListAdapter.MatchListViewHolder>() {
+class FixtureListAdapter(private var matchesByDateList: List<MatchesByDate>) :
+    RecyclerView.Adapter<FixtureListAdapter.FixtureListViewHolder>() {
 
-    inner class MatchListViewHolder(val binding: MatchListRowItemBinding) :
+    inner class FixtureListViewHolder(val binding: FixtureListRowBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FixtureListViewHolder {
         val binding =
-            MatchListRowItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MatchListViewHolder(binding)
+            FixtureListRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return FixtureListViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MatchListViewHolder, position: Int) {
-        val match=matchList[position];
+    override fun onBindViewHolder(holder: FixtureListViewHolder, position: Int) {
+        val match=matchesByDateList[position];
         holder.binding.matchStatus.text = match.status
         holder.binding.textView2.text = Utilities.convertDate(match.utcDate)
         holder.binding.textView3.text = String.format("MD: %d",match.matchday)
@@ -31,6 +31,6 @@ class MatchFixtureListAdapter(private var matchList: List<Match>) :
         holder.binding.matchTime.text = Utilities.showMatchTime(match.status, match.utcDate, match.score)
     }
 
-    override fun getItemCount(): Int = matchList.size
+    override fun getItemCount(): Int = matchesByDateList.size
 
 }

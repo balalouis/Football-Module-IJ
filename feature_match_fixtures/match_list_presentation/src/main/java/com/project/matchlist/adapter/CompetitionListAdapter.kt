@@ -9,7 +9,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.project.matchlist.ui.CompetitionListFragmentDirections
 import com.project.presentation.databinding.CompetitionsListRowItemBinding
-import com.project.matchlist.utils.Utilities
+import com.competition.detail.utils.Utilities
 import com.project.room.model.CompetitionsUiState
 
 class CompetitionListAdapter(private var competitionsUiStateList: List<CompetitionsUiState>) :
