@@ -32,4 +32,11 @@ interface ApiService {
     @Headers("X-Auth-Token: $API_KEY")
     suspend fun getTeamsByCompetition(@Path("id") id: Long)
             : NetworkTeamEntities.NetworkTeamResponse
+
+    @GET("competitions/{id}/matches")
+    @Headers("X-Auth-Token: $API_KEY")
+    suspend fun getMatchesByCompetition(@Path("id") id: Long,
+                                        @Query("dateFrom") dateFrom: String,
+                                        @Query("dateTo") dateTo: String)
+            : TodayMatchEntities.NetworkMatchResponse
 }
